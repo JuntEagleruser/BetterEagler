@@ -63,13 +63,13 @@ public class GuiScreenEditProfile extends GuiScreen {
 	public void initGui() {
 		Keyboard.enableRepeatEvents(true);
 		screenTitle = I18n.format("editProfile.title");
-		usernameField = new GuiTextField(0, fontRendererObj, width / 2 - 20 + 1, height / 6 + 24 + 1, 138, 20);
+		usernameField = new GuiTextField(0, fontRendererObj, width / 2 - 140 + 1, height / 6 + 24 + 1, 138, 20);
 		usernameField.setFocused(true);
 		usernameField.setText(EaglerProfile.getName());
 		selectedSlot = EaglerProfile.presetSkinId == -1 ? EaglerProfile.customSkinId : (EaglerProfile.presetSkinId + EaglerProfile.customSkins.size());
-		buttonList.add(new GuiButton(0, width / 2 - 100, height / 6 + 168, I18n.format("gui.done")));
-		buttonList.add(new GuiButton(1, width / 2 - 21, height / 6 + 110, 71, 20, I18n.format("editProfile.addSkin")));
-		buttonList.add(new GuiButton(2, width / 2 - 21 + 71, height / 6 + 110, 72, 20, I18n.format("editProfile.clearSkin")));
+		buttonList.add(new GuiButton(0, width / 2 - 100, height / 6 + 250, I18n.format("gui.done")));
+		buttonList.add(new GuiButton(1, width / 2 - 70, height / 6 + 220, 71, 20, I18n.format("editProfile.addSkin")));
+		buttonList.add(new GuiButton(2, width / 2 - 70 + 71, height / 6 + 220, 72, 20, I18n.format("editProfile.clearSkin")));
 	}
 
 	private void updateOptions() {
@@ -88,14 +88,14 @@ public class GuiScreenEditProfile extends GuiScreen {
 	public void drawScreen(int mx, int my, float partialTicks) {
 		drawDefaultBackground();
 		drawCenteredString(fontRendererObj, screenTitle, width / 2, 15, 16777215);
-		drawString(fontRendererObj, I18n.format("editProfile.username"), width / 2 - 20, height / 6 + 8, 10526880);
-		drawString(fontRendererObj, I18n.format("editProfile.playerSkin"), width / 2 - 20, height / 6 + 66, 10526880);
+		drawString(fontRendererObj, I18n.format("editProfile.username"), width / 2 - 140, height / 6 + 8, 10526880);
+		drawString(fontRendererObj, I18n.format("editProfile.playerSkin"), width / 2 + 1, height / 6 + 10, 10526880);
 		
 		mousex = mx;
 		mousey = my;
 		
-		int skinX = width / 2 - 120;
-		int skinY = height / 6 + 8;
+		int skinX = width / 2 - 40;
+		int skinY = height / 6 + 80;
 		int skinWidth = 80;
 		int skinHeight = 130;
 		
@@ -114,8 +114,8 @@ public class GuiScreenEditProfile extends GuiScreen {
 			super.drawScreen(mx, my, partialTicks);
 		}
 		
-		skinX = width / 2 - 20;
-		skinY = height / 6 + 82;
+		skinX = width / 2 + 1;
+		skinY = height / 6 + 24;
 		skinWidth = 140;
 		skinHeight = 22;
 		
@@ -130,9 +130,10 @@ public class GuiScreenEditProfile extends GuiScreen {
 		
 		drawString(fontRendererObj, dropDownOptions[selectedSlot], skinX + 5, skinY + 7, 14737632);
 		
-		skinX = width / 2 - 20;
-		skinY = height / 6 + 103;
+		skinX = width / 2 + 1;
+		skinY = height / 6 + 44;
 		skinWidth = 140;
+		
 		skinHeight = (height - skinY - 10);
 		slotsVisible = (skinHeight / 10);
 		if(slotsVisible > dropDownOptions.length) slotsVisible = dropDownOptions.length;
@@ -182,8 +183,8 @@ public class GuiScreenEditProfile extends GuiScreen {
 			GlStateManager.popMatrix();
 		}
 
-		int xx = width / 2 - 80;
-		int yy = height / 6 + 130;
+		int xx = width / 2;
+		int yy = height / 6 + 200;
 		int numberOfCustomSkins = EaglerProfile.customSkins.size();
 		
 		if(newSkinWaitSteveOrAlex && selectedSlot < numberOfCustomSkins) {
@@ -434,16 +435,17 @@ public class GuiScreenEditProfile extends GuiScreen {
 					}
 				}
 			}
-			int skinX = width / 2 + 140 - 40;
-			int skinY = height / 6 + 82;
+			
+	        int skinX = width / 2 + 120;
+	        int skinY = height / 6 + 24;
 		
 			if(mx >= skinX && mx < (skinX + 20) && my >= skinY && my < (skinY + 22)) {
 				dropDownOpen = !dropDownOpen;
 				return;
 			}
 			
-			skinX = width / 2 - 20;
-			skinY = height / 6 + 82;
+			skinX = width / 2;
+			skinY = height / 6 + 24;
 			int skinWidth = 140;
 			int skinHeight = skinsHeight;
 			
