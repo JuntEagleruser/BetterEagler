@@ -9,9 +9,9 @@ public class EaglercraftVersion {
 	
 	/// Customize these to fit your fork:
 	
-	public static final String projectForkName = "EaglercraftX";
-	public static final String projectForkVersion = "u27";
-	public static final String projectForkVendor = "lax1dude";
+	public static final String projectForkName = "BetterEagler";
+	public static final String projectForkVersion = "dev-a1";
+	public static final String projectForkVendor = "radmanplays";
 	
 	public static final String projectForkURL = "https://gitlab.com/lax1dude/eaglercraftx-1.8";
 	
